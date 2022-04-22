@@ -10,9 +10,9 @@ public class Carte {
     private Long id ;
     private Date dateDepart ;
     private Date dateArrivee ;
+    private Boolean etat ;
     @OneToOne
     private Adherent adherent ;
-    private Boolean etat ;
 
     public Long getId() {
         return id;

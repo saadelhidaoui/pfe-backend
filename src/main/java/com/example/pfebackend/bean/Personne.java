@@ -10,12 +10,12 @@ public class Personne {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO )
     private Long id ;
+    private String cin;
     private String nom ;
     private String prenom;
     private String origin ;
     private String email ;
     private String telephone;
-    private String cin;
     private String qualite;
 
     public Long getId() {

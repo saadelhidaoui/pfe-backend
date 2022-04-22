@@ -7,7 +7,7 @@ import java.util.Date;
 public class Tache {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id ;
-    private String reference ;
+    private String ref ;
     private Date date ;
     @Column(columnDefinition = "TEXT")
     private String description ;
@@ -22,12 +22,12 @@ public class Tache {
         this.id = id;
     }
 
-    public String getReference() {
-        return reference;
+    public String getRef() {
+        return ref;
     }
 
-    public void setReference(String reference) {
-        this.reference = reference;
+    public void setRef(String ref) {
+        this.ref = ref;
     }
 
     public Date getDate() {

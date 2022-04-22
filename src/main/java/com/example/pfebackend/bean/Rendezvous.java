@@ -1,18 +1,60 @@
 package com.example.pfebackend.bean;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 public class Rendezvous {
     @Id @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id ;
-    private String reference ;
-    private Date date ;
+    private String ref ;
+    private Date dateDebut ;
+    private Date dateFin;
     private String description ;
+    @Column(columnDefinition = "TEXT")
+    private String pv;
+
+    @ManyToOne
+    private ProjetEnCours projetEnCours;
+
+    @ManyToOne
+    private Mission mission;
+
+    public ProjetEnCours getProjetEnCours() {
+        return projetEnCours;
+    }
+
+    public void setProjetEnCours(ProjetEnCours projetEnCours) {
+        this.projetEnCours = projetEnCours;
+    }
+
+    public Mission getMission() {
+        return mission;
+    }
+
+    public void setMission(Mission mission) {
+        this.mission = mission;
+    }
+
+    public void setDateDebut(Date dateDebut) {
+        this.dateDebut = dateDebut;
+    }
+
+    public Date getDateFin() {
+        return dateFin;
+    }
+
+    public void setDateFin(Date dateFin) {
+        this.dateFin = dateFin;
+    }
+
+    public String getPv() {
+        return pv;
+    }
+
+    public void setPv(String pv) {
+        this.pv = pv;
+    }
 
     public Long getId() {
         return id;
@@ -22,20 +64,20 @@ public class Rendezvous {
         this.id = id;
     }
 
-    public String getReference() {
-        return reference;
+    public String getRef() {
+        return ref;
     }
 
-    public void setReference(String reference) {
-        this.reference = reference;
+    public void setRef(String ref) {
+        this.ref = ref;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getDateDebut() {
+        return dateDebut;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDate(Date dateDebut) {
+        this.dateDebut = dateDebut;
     }
 
     public String getDescription() {

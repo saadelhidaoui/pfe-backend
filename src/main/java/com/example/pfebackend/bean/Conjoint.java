@@ -1,6 +1,5 @@
 package com.example.pfebackend.bean;
 
-import org.springframework.jmx.export.annotation.ManagedAttribute;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

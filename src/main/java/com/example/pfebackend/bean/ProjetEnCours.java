@@ -10,10 +10,11 @@ import java.util.Date;
 public class ProjetEnCours {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id ;
-    private String reference ;
+    private String ref ;
     private String description ;
     private Date dateDebut ;
     private String etat ;
+
 
     public Long getId() {
         return id;
@@ -23,12 +24,12 @@ public class ProjetEnCours {
         this.id = id;
     }
 
-    public String getReference() {
-        return reference;
+    public String getRef() {
+        return ref;
     }
 
-    public void setReference(String reference) {
-        this.reference = reference;
+    public void setRef(String ref) {
+        this.ref = ref;
     }
 
     public String getDescription() {

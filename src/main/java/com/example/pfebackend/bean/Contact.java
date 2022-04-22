@@ -18,7 +18,6 @@ public class Contact {
     private String qualite ;
     private String fax ;
     private String fix ;
-    private String Organisme ;
 
     public Long getId() {
         return id;
@@ -92,11 +91,4 @@ public class Contact {
         this.fix = fix;
     }
 
-    public String getOrganisme() {
-        return Organisme;
-    }
-
-    public void setOrganisme(String organisme) {
-        Organisme = organisme;
-    }
 }

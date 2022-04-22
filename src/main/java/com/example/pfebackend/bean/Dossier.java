@@ -2,7 +2,6 @@ package com.example.pfebackend.bean;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 public class Dossier  {
@@ -11,24 +10,39 @@ public class Dossier  {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id ;
     private String reference ;
-    @ManyToOne
-    private Adherent adherent ;
     private double numArrivee ;
     private Date dateArrivee ;
     private Date dateEnvoi ;
+    private Date dateReception;
     private String Notes ;
     private Boolean recu ;
     private Boolean envoye ;
     private String chargeCas ;
     private String niveauImport ;
-    @OneToOne
-    private Moderateur moderateur ;
     private String typeDossier ;
-    @OneToMany (mappedBy = "dossier")
-    private List<PieceJoint> pieceJoints ;
     private String etat ;
     private Boolean arrive ;
     private String resultat ;
+    @ManyToOne
+    private Adherent adherent ;
+    @OneToOne
+    private PieceJointDossier pieceJointDossier ;
+
+    public Date getDateReception() {
+        return dateReception;
+    }
+
+    public void setDateReception(Date dateReception) {
+        this.dateReception = dateReception;
+    }
+
+    public PieceJointDossier getPieceJointDossier() {
+        return pieceJointDossier;
+    }
+
+    public void setPieceJointDossier(PieceJointDossier pieceJointDossier) {
+        this.pieceJointDossier = pieceJointDossier;
+    }
 
     public Long getId() {
         return id;
@@ -118,28 +132,12 @@ public class Dossier  {
         this.niveauImport = niveauImport;
     }
 
-    public Moderateur getModerateur() {
-        return moderateur;
-    }
-
-    public void setModerateur(Moderateur moderateur) {
-        this.moderateur = moderateur;
-    }
-
     public String getTypeDossier() {
         return typeDossier;
     }
 
     public void setTypeDossier(String typeDossier) {
         this.typeDossier = typeDossier;
-    }
-
-    public List<PieceJoint> getPieceJoints() {
-        return pieceJoints;
-    }
-
-    public void setPieceJoints(List<PieceJoint> pieceJoints) {
-        this.pieceJoints = pieceJoints;
     }
 
     public String getEtat() {

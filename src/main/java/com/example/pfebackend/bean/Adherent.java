@@ -14,8 +14,9 @@ public class Adherent extends Personne{
     @Temporal(TemporalType.DATE)
     private Date dateNaissance ;
     private String pprr ;
-    private String cinConjoint ;
     private Long numAdhesion ;
+
+
 
     public Long getId() {
         return id;
@@ -55,14 +56,6 @@ public class Adherent extends Personne{
 
     public void setPprr(String pprr) {
         this.pprr = pprr;
-    }
-
-    public String getCinConjoint() {
-        return cinConjoint;
-    }
-
-    public void setCinConjoint(String cinConjoint) {
-        this.cinConjoint = cinConjoint;
     }
 
     public Long getNumAdhesion() {

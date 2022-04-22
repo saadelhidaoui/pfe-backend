@@ -6,12 +6,13 @@ import javax.persistence.*;
 public class Reclamation {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id ;
-    @ManyToOne
-    private Adherent adherent ;
     private String ref ;
     @Column(columnDefinition = "TEXT")
     private String description ;
     private String type ;
+
+    @ManyToOne
+    private Adherent adherent ;
 
     public Long getId() {
         return id;

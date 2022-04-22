@@ -2,22 +2,22 @@ package com.example.pfebackend.bean;
 
 import javax.persistence.*;
 
-
 @Entity
-public class Moderateur extends Personne {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+public class GestionReclamation {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String ref;
 
     @ManyToOne
-    private Dossier dossier;
+    private Moderateur moderateur;
+    @ManyToOne
+    private Reclamation reclamation;
 
-    @Override
     public Long getId() {
         return id;
     }
 
-    @Override
     public void setId(Long id) {
         this.id = id;
     }

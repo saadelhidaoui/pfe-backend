@@ -1,0 +1,55 @@
+package com.example.pfebackend.bean;
+
+import javax.persistence.*;
+
+@Entity
+public class Reclamation {
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id ;
+    @ManyToOne
+    private Adherent adherent ;
+    private String ref ;
+    @Column(columnDefinition = "TEXT")
+    private String description ;
+    private String type ;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Adherent getAdherent() {
+        return adherent;
+    }
+
+    public void setAdherent(Adherent adherent) {
+        this.adherent = adherent;
+    }
+
+    public String getRef() {
+        return ref;
+    }
+
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+}

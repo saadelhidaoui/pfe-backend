@@ -1,5 +1,7 @@
 package com.example.pfebackend.bean;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -11,6 +13,7 @@ public class Adherent extends Personne{
     private Long id ;
     private String adresse ;
     private String ppr ;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
     private Date dateNaissance ;
     private String pprr ;

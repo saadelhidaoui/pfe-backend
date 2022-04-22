@@ -1,5 +1,7 @@
 package com.example.pfebackend.bean;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import javax.print.Doc;
 import java.util.Date;
@@ -8,8 +10,14 @@ import java.util.Date;
 public class Carte {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id ;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
     private Date dateDepart ;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
     private Date dateArrivee ;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
     private Boolean etat ;
     @OneToOne
     private Adherent adherent ;

@@ -1,5 +1,7 @@
 package com.example.pfebackend.bean;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -11,6 +13,8 @@ public class Enfant {
     private String nom;
     private String prenom;
     private int age;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
     private Date dateNaissance;
 
     @ManyToOne

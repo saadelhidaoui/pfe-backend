@@ -3,14 +3,21 @@ package com.example.pfebackend.bean;
 import javax.persistence.*;
 
 @Entity
-public class PieceJointDossier {
+public class PieceJoint {
 @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id ;
     private String libelle ;
     private String path ;
     private String typePiece ;
-    @OneToOne
+    @ManyToOne
     private Dossier dossier ;
+    @ManyToOne
+    private Mission mission;
+    @ManyToOne
+    private Rendezvous rendezvous;
+    @ManyToOne
+    private ProjetEnCours projetEnCours;
+
 
     public Dossier getDossier() {
         return dossier;

@@ -1,5 +1,7 @@
 package com.example.pfebackend.bean;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -11,8 +13,14 @@ public class Dossier  {
     private Long id ;
     private String reference ;
     private double numArrivee ;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
     private Date dateArrivee ;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
     private Date dateEnvoi ;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
     private Date dateReception;
     private String Notes ;
     private Boolean recu ;
@@ -25,8 +33,7 @@ public class Dossier  {
     private String resultat ;
     @ManyToOne
     private Adherent adherent ;
-    @OneToOne
-    private PieceJointDossier pieceJointDossier ;
+
 
     public Date getDateReception() {
         return dateReception;
@@ -34,14 +41,6 @@ public class Dossier  {
 
     public void setDateReception(Date dateReception) {
         this.dateReception = dateReception;
-    }
-
-    public PieceJointDossier getPieceJointDossier() {
-        return pieceJointDossier;
-    }
-
-    public void setPieceJointDossier(PieceJointDossier pieceJointDossier) {
-        this.pieceJointDossier = pieceJointDossier;
     }
 
     public Long getId() {

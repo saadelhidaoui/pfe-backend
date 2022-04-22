@@ -1,9 +1,8 @@
 package com.example.pfebackend.bean;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -12,6 +11,8 @@ public class ProjetEnCours {
     private Long id ;
     private String ref ;
     private String description ;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
     private Date dateDebut ;
     private String etat ;
 

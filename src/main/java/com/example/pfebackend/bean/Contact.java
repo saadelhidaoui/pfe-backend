@@ -1,9 +1,6 @@
 package com.example.pfebackend.bean;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Contact {
@@ -18,6 +15,17 @@ public class Contact {
     private String qualite ;
     private String fax ;
     private String fix ;
+
+    @ManyToOne
+    private Conventions conventions;
+
+    public Conventions getConventions() {
+        return conventions;
+    }
+
+    public void setConventions(Conventions conventions) {
+        this.conventions = conventions;
+    }
 
     public Long getId() {
         return id;

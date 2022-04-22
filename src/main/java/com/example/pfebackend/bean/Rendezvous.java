@@ -1,5 +1,7 @@
 package com.example.pfebackend.bean;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -8,7 +10,11 @@ public class Rendezvous {
     @Id @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id ;
     private String ref ;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
     private Date dateDebut ;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
     private Date dateFin;
     private String description ;
     @Column(columnDefinition = "TEXT")

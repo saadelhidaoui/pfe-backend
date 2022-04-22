@@ -6,15 +6,15 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-public class Produit {
+public class Conventions {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id ;
-    private String ref ;
+    private Long id;
+    private String ref;
+    private String libelle;
+    private String organisme;
     @JsonFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
-    private Date dateArrivee ;
-    private String libelle ;
-    private Long quantite ;
+    private Date dateDebut;
 
     public Long getId() {
         return id;
@@ -32,14 +32,6 @@ public class Produit {
         this.ref = ref;
     }
 
-    public Date getDateArrivee() {
-        return dateArrivee;
-    }
-
-    public void setDateArrivee(Date dateArrivee) {
-        this.dateArrivee = dateArrivee;
-    }
-
     public String getLibelle() {
         return libelle;
     }
@@ -48,11 +40,19 @@ public class Produit {
         this.libelle = libelle;
     }
 
-    public Long getQuantite() {
-        return quantite;
+    public String getOrganisme() {
+        return organisme;
     }
 
-    public void setQuantite(Long quantite) {
-        this.quantite = quantite;
+    public void setOrganisme(String organisme) {
+        this.organisme = organisme;
+    }
+
+    public Date getDateDebut() {
+        return dateDebut;
+    }
+
+    public void setDateDebut(Date dateDebut) {
+        this.dateDebut = dateDebut;
     }
 }

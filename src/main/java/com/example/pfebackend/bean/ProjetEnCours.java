@@ -1,6 +1,7 @@
 package com.example.pfebackend.bean;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.jdbc.core.SqlReturnType;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -15,7 +16,24 @@ public class ProjetEnCours {
     @Temporal(TemporalType.DATE)
     private Date dateDebut ;
     private String etat ;
+    private String ville;
+    private String pv;
 
+    public String getPv() {
+        return pv;
+    }
+
+    public void setPv(String pv) {
+        this.pv = pv;
+    }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
 
     public Long getId() {
         return id;

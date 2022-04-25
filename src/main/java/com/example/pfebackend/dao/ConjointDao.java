@@ -9,10 +9,11 @@ import java.util.List;
 
 @Repository
 public interface ConjointDao extends JpaRepository<Conjoint, Long> {
-
-
+    Conjoint findByCin(String cin);
     Conjoint findByNom(String nom);
+    List<Conjoint> findByAdherentCin(String cin);
 
+    int deleteByAdherentCin(String cin);
     List<Conjoint> findAll();
 
 }

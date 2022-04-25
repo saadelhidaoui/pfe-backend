@@ -10,6 +10,7 @@ import java.util.Date;
 public class Carte {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id ;
+    private String ref;
     @JsonFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
     private Date dateDepart ;
@@ -21,6 +22,14 @@ public class Carte {
     private Boolean etat ;
     @OneToOne
     private Adherent adherent ;
+
+    public String getRef() {
+        return ref;
+    }
+
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
 
     public Long getId() {
         return id;

@@ -1,7 +1,6 @@
 package com.example.pfebackend.dao;
 
 import com.example.pfebackend.bean.Moderateur;
-import com.example.pfebackend.bean.Moderateur;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

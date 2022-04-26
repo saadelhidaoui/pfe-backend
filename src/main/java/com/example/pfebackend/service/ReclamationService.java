@@ -1,8 +1,6 @@
 package com.example.pfebackend.service;
 
-import com.example.pfebackend.bean.Adherent;
 import com.example.pfebackend.bean.Reclamation;
-import com.example.pfebackend.dao.AdherentDao;
 import com.example.pfebackend.dao.ReclamationDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

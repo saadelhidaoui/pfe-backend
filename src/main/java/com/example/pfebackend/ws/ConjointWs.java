@@ -4,7 +4,6 @@ import com.example.pfebackend.bean.Conjoint;
 import com.example.pfebackend.service.AdherentService;
 import com.example.pfebackend.service.ConjointService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

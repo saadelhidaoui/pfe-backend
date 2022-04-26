@@ -31,6 +31,8 @@ public class Estivage  {
     private String resultat ;
     @ManyToOne
     private Adherent adherent ;
+    @ManyToOne
+    private Moderateur moderateur;
 
 
     public Long getId() {

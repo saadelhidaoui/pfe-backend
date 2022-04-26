@@ -16,16 +16,6 @@ public class Contact {
     private String fax ;
     private String fix ;
 
-    @ManyToOne
-    private Conventions conventions;
-
-    public Conventions getConventions() {
-        return conventions;
-    }
-
-    public void setConventions(Conventions conventions) {
-        this.conventions = conventions;
-    }
 
     public Long getId() {
         return id;

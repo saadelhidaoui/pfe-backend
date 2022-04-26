@@ -33,7 +33,16 @@ public class Dossier  {
     private String resultat ;
     @ManyToOne
     private Adherent adherent ;
+    @ManyToOne
+    private Moderateur moderateur;
 
+    public Moderateur getModerateur() {
+        return moderateur;
+    }
+
+    public void setModerateur(Moderateur moderateur) {
+        this.moderateur = moderateur;
+    }
 
     public Date getDateReception() {
         return dateReception;

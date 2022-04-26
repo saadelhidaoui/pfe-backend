@@ -29,7 +29,7 @@ public class Dossier  {
     private String niveauImport ;
     private String typeDossier ;
     private String etat ;
-    private Boolean arrive ;
+    private String arrive ;
     private String resultat ;
     @ManyToOne
     private Adherent adherent ;
@@ -147,11 +147,11 @@ public class Dossier  {
         this.etat = etat;
     }
 
-    public Boolean getArrive() {
+    public String getArrive() {
         return arrive;
     }
 
-    public void setArrive(Boolean arrive) {
+    public void setArrive(String arrive) {
         this.arrive = arrive;
     }
 

@@ -10,7 +10,9 @@ import java.util.List;
 @Repository
 public interface TacheDao extends JpaRepository<Tache, Long> {
 
-    Tache findByNom(String nom);
+    Tache findByRef(String ref);
     List<Tache> findAll();
+
+    int deleteByRef(String ref);
 
 }

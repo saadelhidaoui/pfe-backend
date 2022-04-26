@@ -1,13 +1,12 @@
 package com.example.pfebackend.bean;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.springframework.jdbc.core.SqlReturnType;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-public class ProjetEnCours {
+public class Projets {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id ;
     private String ref ;

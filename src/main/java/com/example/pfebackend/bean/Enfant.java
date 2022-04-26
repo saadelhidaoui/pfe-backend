@@ -10,6 +10,7 @@ public class Enfant {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String ref;
     private String nom;
     private String prenom;
     private int age;
@@ -19,6 +20,14 @@ public class Enfant {
 
     @ManyToOne
     private Adherent adherent;
+
+    public String getRef() {
+        return ref;
+    }
+
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
 
     public Long getId() {
         return id;

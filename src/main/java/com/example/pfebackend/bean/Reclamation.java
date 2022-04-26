@@ -9,7 +9,6 @@ public class Reclamation {
     private String ref ;
     @Column(columnDefinition = "TEXT")
     private String description ;
-    private String type ;
 
     @ManyToOne
     private Adherent adherent ;
@@ -46,11 +45,4 @@ public class Reclamation {
         this.description = description;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
 }

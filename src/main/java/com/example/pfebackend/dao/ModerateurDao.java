@@ -11,8 +11,13 @@ import java.util.List;
 public interface ModerateurDao extends JpaRepository<Moderateur, Long> {
 
 
-    Moderateur findByNom(String nom);
+    Moderateur  findByRef(String ref);
+    Moderateur findByCin(String cin);
+    List<Moderateur> findByQualite(String qualite);
     List<Moderateur> findAll();
+
+    int deleteByRef(String ref);
+    int deleteByCin(String cin);
 
 
 }

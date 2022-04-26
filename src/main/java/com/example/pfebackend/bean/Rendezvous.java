@@ -21,16 +21,16 @@ public class Rendezvous {
     private String pv;
 
     @ManyToOne
-    private ProjetEnCours projetEnCours;
+    private Projets projetEnCours;
 
     @ManyToOne
     private Mission mission;
 
-    public ProjetEnCours getProjetEnCours() {
+    public Projets getProjetEnCours() {
         return projetEnCours;
     }
 
-    public void setProjetEnCours(ProjetEnCours projetEnCours) {
+    public void setProjetEnCours(Projets projetEnCours) {
         this.projetEnCours = projetEnCours;
     }
 

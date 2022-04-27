@@ -3,8 +3,7 @@ package com.example.pfebackend.ws;
 import com.example.pfebackend.bean.Projets;
 import com.example.pfebackend.service.ProjetService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -15,27 +14,33 @@ public class ProjetWs {
     @Autowired
     private ProjetService projetService;
 
-    public Projets findByRef(String ref) {
+    @GetMapping("/ref/{ref}")
+    public Projets findByRef(@PathVariable String ref) {
         return projetService.findByRef(ref);
     }
 
-    public List<Projets> findByDateDebut(Date dateDebut) {
+    @GetMapping("/dateDebut/{dateDebut}")
+    public List<Projets> findByDateDebut(@PathVariable Date dateDebut) {
         return projetService.findByDateDebut(dateDebut);
     }
 
-    public List<Projets> findByVille(String ville) {
+    @GetMapping("/ville/{ville}")
+    public List<Projets> findByVille(@PathVariable String ville) {
         return projetService.findByVille(ville);
     }
 
+    @GetMapping("/")
     public List<Projets> findAll() {
         return projetService.findAll();
     }
 
-    public int deleteByRef(String ref) {
+    @DeleteMapping("/ref/{ref}")
+    public int deleteByRef(@PathVariable String ref) {
         return projetService.deleteByRef(ref);
     }
 
-    public int save(Projets projets) {
+    @PostMapping("/")
+    public int save(@RequestBody Projets projets) {
         return projetService.save(projets);
     }
 }

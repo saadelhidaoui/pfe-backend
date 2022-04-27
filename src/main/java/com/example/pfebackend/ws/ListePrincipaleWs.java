@@ -3,6 +3,7 @@ package com.example.pfebackend.ws;
 import com.example.pfebackend.bean.ListePrincipale;
 import com.example.pfebackend.service.ListePrincipaleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,6 +15,7 @@ public class ListePrincipaleWs {
     @Autowired
     private ListePrincipaleService listePrincipaleService;
 
+    @GetMapping("/")
     public List<ListePrincipale> findAll() {
         return listePrincipaleService.findAll();
     }

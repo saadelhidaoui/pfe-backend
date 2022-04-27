@@ -3,8 +3,7 @@ package com.example.pfebackend.ws;
 import com.example.pfebackend.bean.Mission;
 import com.example.pfebackend.service.MissionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -15,34 +14,42 @@ public class MissionWs {
     @Autowired
     private MissionService missionService;
 
-    public Mission findByRef(String ref) {
+    @GetMapping("/ref/{ref}")
+    public Mission findByRef(@PathVariable String ref) {
         return missionService.findByRef(ref);
     }
 
-    public List<Mission> findByVille(String ref) {
-        return missionService.findByVille(ref);
+    @GetMapping("/ville/{ville}")
+    public List<Mission> findByVille(@PathVariable String ville) {
+        return missionService.findByVille(ville);
     }
 
-    public List<Mission> findByDateDebut(String dateDebut) {
+    @GetMapping("/dateDebute/{dateDebut}")
+    public List<Mission> findByDateDebut(@PathVariable String dateDebut) {
         return missionService.findByDateDebut(dateDebut);
     }
 
+    @GetMapping("/")
     public List<Mission> findAll() {
         return missionService.findAll();
     }
 
-    public int deleteByRef(String ref) {
+    @DeleteMapping("/ref/{ref}")
+    public int deleteByRef(@PathVariable String ref) {
         return missionService.deleteByRef(ref);
     }
 
+    @DeleteMapping("/dateDebut/{dateDebut}")
     public int deleteByDateDebut(Date dateDebut) {
         return missionService.deleteByDateDebut(dateDebut);
     }
 
+    @DeleteMapping("/ville/{ville}")
     public int deleteByVille(String ville) {
         return missionService.deleteByVille(ville);
     }
 
+    @PostMapping("/")
     public int save(Mission mission) {
         return missionService.save(mission);
     }

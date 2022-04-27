@@ -3,8 +3,7 @@ package com.example.pfebackend.ws;
 import com.example.pfebackend.bean.Produit;
 import com.example.pfebackend.service.ProduitService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -15,23 +14,28 @@ public class ProduitWs {
     @Autowired
     private ProduitService produitService;
 
-    public Produit findByRef(String ref) {
+    @GetMapping("/ref/{ref}")
+    public Produit findByRef(@PathVariable String ref) {
         return produitService.findByRef(ref);
     }
 
-    public List<Produit> findByDateArrivee(Date dateArrivee) {
+    @GetMapping("/dateArrivee/{dateArrivee}")
+    public List<Produit> findByDateArrivee(@PathVariable Date dateArrivee) {
         return produitService.findByDateArrivee(dateArrivee);
     }
 
+    @GetMapping("/")
     public List<Produit> findAll() {
         return produitService.findAll();
     }
 
-    public int deleteByRef(String ref) {
+    @DeleteMapping("/ref/{ref}")
+    public int deleteByRef(@PathVariable String ref) {
         return produitService.deleteByRef(ref);
     }
 
-    public int save(Produit produit) {
+    @PostMapping("/")
+    public int save(@RequestBody Produit produit) {
         return produitService.save(produit);
     }
 }

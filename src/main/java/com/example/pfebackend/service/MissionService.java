@@ -17,8 +17,8 @@ public class MissionService {
         return missionDao.findByRef(ref);
     }
 
-    public List<Mission> findByVille(String ref) {
-        return missionDao.findByVille(ref);
+    public List<Mission> findByVille(String ville) {
+        return missionDao.findByVille(ville);
     }
 
     public List<Mission> findByDateDebut(String dateDebut) {

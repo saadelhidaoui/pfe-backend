@@ -11,7 +11,7 @@ import java.util.List;
 public interface MissionDao extends JpaRepository<Mission, Long> {
 
     Mission findByRef(String ref);
-    List<Mission> findByVille(String ref);
+    List<Mission> findByVille(String ville);
     List<Mission> findByDateDebut(String dateDebut);
     List<Mission> findAll();
 

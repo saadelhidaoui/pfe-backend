@@ -4,8 +4,7 @@ import com.example.pfebackend.bean.Conjoint;
 import com.example.pfebackend.service.AdherentService;
 import com.example.pfebackend.service.ConjointService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,34 +16,42 @@ public class ConjointWs {
     @Autowired
     private AdherentService adherentService;
 
-    public Conjoint findByCin(String cin) {
+    @GetMapping("/cin/{cin}")
+    public Conjoint findByCin(@PathVariable String cin) {
         return conjointService.findByCin(cin);
     }
 
-    public Conjoint findByNom(String nom) {
+    @GetMapping("/nom/{nom}")
+    public Conjoint findByNom(@PathVariable String nom) {
         return conjointService.findByNom(nom);
     }
 
-    public List<Conjoint> findByAdherentCin(String cin) {
+    @GetMapping("/adherent/cin/{cin}")
+    public List<Conjoint> findByAdherentCin(@PathVariable String cin) {
         return conjointService.findByAdherentCin(cin);
     }
 
-    public List<Conjoint> findByAdherentPpr(String ppr) {
+    @GetMapping("/adherent/ppr/{ppr}")
+    public List<Conjoint> findByAdherentPpr(@PathVariable String ppr) {
         return conjointService.findByAdherentPpr(ppr);
     }
 
-    public List<Conjoint> findByAdherentNumAdhesion(String numAdhesion) {
+    @GetMapping("/adherent/numAdhesion/{numAdhesion}")
+    public List<Conjoint> findByAdherentNumAdhesion(@PathVariable String numAdhesion) {
         return conjointService.findByAdherentNumAdhesion(numAdhesion);
     }
 
-    public int deleteByAdherentCin(String cin) {
+    @DeleteMapping("/adherent/cin/{cin}")
+    public int deleteByAdherentCin(@PathVariable String cin) {
         return conjointService.deleteByAdherentCin(cin);
     }
 
-    public int deleteByCin(String cin) {
+    @DeleteMapping("/cin/{cin}")
+    public int deleteByCin(@PathVariable String cin) {
         return conjointService.deleteByCin(cin);
     }
 
+    @GetMapping("/")
     public List<Conjoint> findAll() {
         return conjointService.findAll();
     }

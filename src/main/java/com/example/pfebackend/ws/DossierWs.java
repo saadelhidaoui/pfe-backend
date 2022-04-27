@@ -3,8 +3,7 @@ package com.example.pfebackend.ws;
 import com.example.pfebackend.bean.Dossier;
 import com.example.pfebackend.service.DossierService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -15,39 +14,48 @@ public class DossierWs {
     @Autowired
     private DossierService dossierService;
 
-    public Dossier findByReference(String reference) {
+    @GetMapping("/reference/{reference}")
+    public Dossier findByReference(@PathVariable String reference) {
         return dossierService.findByReference(reference);
     }
 
-    public Dossier findByAdherentNumAdhesion(String numAdhesion) {
+    @GetMapping("/adherent/aff/{numAdhesion}")
+    public Dossier findByAdherentNumAdhesion(@PathVariable String numAdhesion) {
         return dossierService.findByAdherentNumAdhesion(numAdhesion);
     }
 
-    public Dossier findByAdherentPpr(String ppr) {
+    @GetMapping("/adherent/ppr/{ppr}")
+    public Dossier findByAdherentPpr(@PathVariable String ppr) {
         return dossierService.findByAdherentPpr(ppr);
     }
 
-    public Dossier findByAdherentCin(String cin) {
+    @GetMapping("/adherent/cin/{cin}")
+    public Dossier findByAdherentCin(@PathVariable String cin) {
         return dossierService.findByAdherentCin(cin);
     }
 
-    public List<Dossier> findByDateArrivee(Date dateArrivee) {
+    @GetMapping("/dateArrivee/{dateArrivee}")
+    public List<Dossier> findByDateArrivee(@PathVariable Date dateArrivee) {
         return dossierService.findByDateArrivee(dateArrivee);
     }
 
-    public List<Dossier> findByDateEnvoi(Date dateEnvoi) {
+    @GetMapping("/dateEnvoi/{dateEnvoi}")
+    public List<Dossier> findByDateEnvoi(@PathVariable Date dateEnvoi) {
         return dossierService.findByDateEnvoi(dateEnvoi);
     }
 
-    public List<Dossier> findByDateReception(Date dateReception) {
+    @GetMapping("/dateReception/{dateReception}")
+    public List<Dossier> findByDateReception(@PathVariable Date dateReception) {
         return dossierService.findByDateReception(dateReception);
     }
 
-    public List<Dossier> findByNiveauImport(String niveauImport) {
+    @GetMapping("/dateNiveauImportance/{dateNiveauImport}")
+    public List<Dossier> findByNiveauImport(@PathVariable String niveauImport) {
         return dossierService.findByNiveauImport(niveauImport);
     }
 
-    public List<Dossier> findByTypeDossier(String typeDossier) {
+    @GetMapping("/typeDossier/{typeDossier}")
+    public List<Dossier> findByTypeDossier(@PathVariable String typeDossier) {
         return dossierService.findByTypeDossier(typeDossier);
     }
 
@@ -55,23 +63,28 @@ public class DossierWs {
         return dossierService.findAll();
     }
 
-    public int deleteByReference(String reference) {
+    @DeleteMapping("/reference/{reference}")
+    public int deleteByReference(@PathVariable String reference) {
         return dossierService.deleteByReference(reference);
     }
 
-    public int deleteByAdherentCin(String cin) {
+    @DeleteMapping("/adhrent/cin/{cin}")
+    public int deleteByAdherentCin(@PathVariable String cin) {
         return dossierService.deleteByAdherentCin(cin);
     }
 
+    @DeleteMapping("/adhrent/ppr/{ppr}")
     public int deleteByAdherentPpr(String ppr) {
         return dossierService.deleteByAdherentPpr(ppr);
     }
 
-    public int deleteByAdherentNumAdhesion(String numAdhesion) {
+    @DeleteMapping("/adhrent/aff/{numAdhesion}")
+    public int deleteByAdherentNumAdhesion(@PathVariable String numAdhesion) {
         return dossierService.deleteByAdherentNumAdhesion(numAdhesion);
     }
 
-    public int save(Dossier dossier) {
+    @PostMapping("/")
+    public int save(@RequestBody Dossier dossier) {
         return dossierService.save(dossier);
     }
 }

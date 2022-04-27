@@ -3,8 +3,7 @@ package com.example.pfebackend.ws;
 import com.example.pfebackend.bean.Reclamation;
 import com.example.pfebackend.service.ReclamationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,43 +13,53 @@ public class ReclamationWs {
     @Autowired
     private ReclamationService reclamationService;
 
-    public Reclamation findByRef(String ref) {
+    @GetMapping("/ref/{ref}")
+    public Reclamation findByRef(@PathVariable String ref) {
         return reclamationService.findByRef(ref);
     }
 
-    public List<Reclamation> findByAdherentCin(String cin) {
+    @GetMapping("/adherent/cin/{cin}")
+    public List<Reclamation> findByAdherentCin(@PathVariable String cin) {
         return reclamationService.findByAdherentCin(cin);
     }
 
-    public List<Reclamation> findByAdherentPpr(String ppr) {
+    @GetMapping("/adherent/ppr/{ppr}")
+    public List<Reclamation> findByAdherentPpr(@PathVariable String ppr) {
         return reclamationService.findByAdherentPpr(ppr);
     }
 
-    public List<Reclamation> findByAdherentNumAdhesion(String numAdhesion) {
+    @GetMapping("/adherent/aff/{numAdhesion}")
+    public List<Reclamation> findByAdherentNumAdhesion(@PathVariable String numAdhesion) {
         return reclamationService.findByAdherentNumAdhesion(numAdhesion);
     }
 
+    @GetMapping("/")
     public List<Reclamation> findAll() {
         return reclamationService.findAll();
     }
 
-    public int deleteByRef(String ref) {
+    @DeleteMapping("/ref/{ref}")
+    public int deleteByRef(@PathVariable String ref) {
         return reclamationService.deleteByRef(ref);
     }
 
-    public int deleteByAdherentCin(String cin) {
+    @DeleteMapping("/adherent/cin/{cin}")
+    public int deleteByAdherentCin(@PathVariable String cin) {
         return reclamationService.deleteByAdherentCin(cin);
     }
 
-    public int deleteByAdherentPpr(String ppr) {
+    @DeleteMapping("/adherent/ppr/{ppr}")
+    public int deleteByAdherentPpr(@PathVariable String ppr) {
         return reclamationService.deleteByAdherentPpr(ppr);
     }
 
-    public int deleteByAdherentNumAdhesion(String numAdhesion) {
+    @DeleteMapping("/adherent/aff/{numAdhesion}")
+    public int deleteByAdherentNumAdhesion(@PathVariable String numAdhesion) {
         return reclamationService.deleteByAdherentNumAdhesion(numAdhesion);
     }
 
-    public int save(Reclamation reclamation) {
+    @PostMapping("/")
+    public int save(@RequestBody Reclamation reclamation) {
         return reclamationService.save(reclamation);
     }
 }

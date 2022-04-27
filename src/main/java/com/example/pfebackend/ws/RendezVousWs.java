@@ -3,8 +3,7 @@ package com.example.pfebackend.ws;
 import com.example.pfebackend.bean.Rendezvous;
 import com.example.pfebackend.service.RendezVousService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -15,23 +14,28 @@ public class RendezVousWs {
     @Autowired
     private RendezVousService rendezVousService;
 
-    public Rendezvous findByRef(String ref) {
+    @GetMapping("/ref/{ref}")
+    public Rendezvous findByRef(@PathVariable String ref) {
         return rendezVousService.findByRef(ref);
     }
 
-    public List<Rendezvous> findByDateDebut(Date dateDebut) {
+    @GetMapping("/dateDebut/{dateDebut}")
+    public List<Rendezvous> findByDateDebut(@PathVariable Date dateDebut) {
         return rendezVousService.findByDateDebut(dateDebut);
     }
 
+    @GetMapping("/")
     public List<Rendezvous> findAll() {
         return rendezVousService.findAll();
     }
 
-    public int deleteByRef(String ref) {
+    @DeleteMapping("ref/{ref}")
+    public int deleteByRef(@PathVariable String ref) {
         return rendezVousService.deleteByRef(ref);
     }
 
-    public int save(Rendezvous rendezvous) {
+    @PostMapping("/")
+    public int save(@RequestBody Rendezvous rendezvous) {
         return rendezVousService.save(rendezvous);
     }
 }

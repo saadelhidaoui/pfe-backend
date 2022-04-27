@@ -3,8 +3,7 @@ package com.example.pfebackend.ws;
 import com.example.pfebackend.bean.Adherent;
 import com.example.pfebackend.service.AdherentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,19 +13,23 @@ public class AdherentWs {
     @Autowired
     private AdherentService adherentService;
 
-    public Adherent findByCin(String cin) {
+    @GetMapping("cin/{cin}")
+    public Adherent findByCin(@PathVariable String cin) {
         return adherentService.findByCin(cin);
     }
 
-    public Adherent findByPpr(String ppr) {
+    @GetMapping("/ppr/{ppr}")
+    public Adherent findByPpr(@PathVariable String ppr) {
         return adherentService.findByPpr(ppr);
     }
 
-    public Adherent findByNom(String nom) {
+    @GetMapping("nom/{nom}")
+    public Adherent findByNom(@PathVariable String nom) {
         return adherentService.findByNom(nom);
     }
 
-    public Adherent findByNumAdhesion(String numAdhesion) {
+    @GetMapping("/numAdhesion/{numAdhesion}")
+    public Adherent findByNumAdhesion(@PathVariable String numAdhesion) {
         return adherentService.findByNumAdhesion(numAdhesion);
     }
 
@@ -34,19 +37,22 @@ public class AdherentWs {
         return adherentService.findAll();
     }
 
-    public int deleteByCin(String cin) {
+    @DeleteMapping("/cin/{cin}")
+    public int deleteByCin(@PathVariable String cin) {
         return adherentService.deleteByCin(cin);
     }
 
-    public int deleteByPpr(String ppr) {
+    @DeleteMapping("/ppr/{ppr}")
+    public int deleteByPpr(@PathVariable String ppr) {
         return adherentService.deleteByPpr(ppr);
     }
-
-    public int deleteByNumAdhesion(String numAdhesion) {
+@DeleteMapping("/numAdhesion/{numAdhesion}")
+    public int deleteByNumAdhesion(@PathVariable String numAdhesion) {
         return adherentService.deleteByNumAdhesion(numAdhesion);
     }
 
-    public int save(Adherent adherent) {
+    @GetMapping("/")
+    public int save(@RequestBody Adherent adherent) {
         return adherentService.save(adherent);
     }
 }

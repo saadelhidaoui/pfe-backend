@@ -3,8 +3,7 @@ package com.example.pfebackend.ws;
 import com.example.pfebackend.bean.Carte;
 import com.example.pfebackend.service.CarteService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -15,35 +14,42 @@ public class CarteWs {
     @Autowired
     private CarteService carteService;
 
-    public Carte findByRef(String ref) {
+    @GetMapping("ref/{ref}")
+    public Carte findByRef(@PathVariable String ref) {
         return carteService.findByRef(ref);
     }
 
-    public Carte findByAdherentPpr(String ppr) {
+    @GetMapping("adherent/ppr/{ppr}")
+    public Carte findByAdherentPpr(@PathVariable String ppr) {
         return carteService.findByAdherentPpr(ppr);
     }
 
-    public Carte findByAdherentNumAdhesion(String numAdhesion) {
+    @GetMapping("/adherent/numAdhesion/{numAdhesion}")
+    public Carte findByAdherentNumAdhesion(@PathVariable String numAdhesion) {
         return carteService.findByAdherentNumAdhesion(numAdhesion);
     }
 
-    public Carte findByAdherentCin(String cin) {
+    @GetMapping("/adherent/cin/{cin}")
+    public Carte findByAdherentCin(@PathVariable String cin) {
         return carteService.findByAdherentCin(cin);
     }
 
-    public List<Carte> findByDateArrivee(Date dateArrivee) {
+    @GetMapping("dateArrivee/{dateArrivee}")
+    public List<Carte> findByDateArrivee(@PathVariable Date dateArrivee) {
         return carteService.findByDateArrivee(dateArrivee);
     }
 
-    public List<Carte> findByDateDepart(Date dateDepart) {
+    @GetMapping("/dateDepart/{departDepart}")
+    public List<Carte> findByDateDepart(@PathVariable Date dateDepart) {
         return carteService.findByDateDepart(dateDepart);
     }
 
+    @GetMapping("/")
     public List<Carte> findAll() {
         return carteService.findAll();
     }
-
-    public int save(Carte carte) {
+@PostMapping("/")
+    public int save(@RequestBody Carte carte) {
         return carteService.save(carte);
     }
 }

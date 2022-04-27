@@ -3,8 +3,7 @@ package com.example.pfebackend.ws;
 import com.example.pfebackend.bean.Estivage;
 import com.example.pfebackend.service.EstivageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,71 +13,88 @@ public class EstivageWs {
     @Autowired
     private EstivageService estivageService;
 
-    public Estivage findByRef(String ref) {
+    @GetMapping("/ref/{ref}")
+    public Estivage findByRef(@PathVariable String ref) {
         return estivageService.findByRef(ref);
     }
 
-    public List<Estivage> findByAdherentPpr(String ppr) {
+    @GetMapping("/ppr/{ppr}")
+    public List<Estivage> findByAdherentPpr(@PathVariable String ppr) {
         return estivageService.findByAdherentPpr(ppr);
     }
 
-    public List<Estivage> findByAdherentNumAdhesion(String numAdhesion) {
+    @GetMapping("/aff/{numAdhesion}")
+    public List<Estivage> findByAdherentNumAdhesion(@PathVariable String numAdhesion) {
         return estivageService.findByAdherentNumAdhesion(numAdhesion);
     }
 
-    public List<Estivage> findByAdherentCin(String cin) {
+    @GetMapping("/adherent/cin/{cin}")
+    public List<Estivage> findByAdherentCin(@PathVariable String cin) {
         return estivageService.findByAdherentCin(cin);
     }
 
-    public List<Estivage> findByRegion(String region) {
+    @GetMapping("/region/{region}")
+    public List<Estivage> findByRegion(@PathVariable String region) {
         return estivageService.findByRegion(region);
     }
 
-    public List<Estivage> findByVille(String ville) {
+    @GetMapping("/ville/{ville}")
+    public List<Estivage> findByVille(@PathVariable String ville) {
         return estivageService.findByVille(ville);
     }
 
-    public List<Estivage> findByDateReception(String dateReception) {
+    @GetMapping("/dateReception/{dateReception}")
+    public List<Estivage> findByDateReception(@PathVariable String dateReception) {
         return estivageService.findByDateReception(dateReception);
     }
 
-    public List<Estivage> findByDateEnvoi(String dateEnvoi) {
+    @GetMapping("/dateEnvoi/{dateEnvoi}")
+    public List<Estivage> findByDateEnvoi(@PathVariable String dateEnvoi) {
         return estivageService.findByDateEnvoi(dateEnvoi);
     }
 
-    public List<Estivage> findByDateArrivee(String dateArrivee) {
+    @GetMapping("/dateArrivee/{dateArrivee}")
+    public List<Estivage> findByDateArrivee(@PathVariable String dateArrivee) {
         return estivageService.findByDateArrivee(dateArrivee);
     }
 
+    @GetMapping("/numArrivee/{dateArrivee}")
     public List<Estivage> findByNumArrivee(String numArrivee) {
         return estivageService.findByNumArrivee(numArrivee);
     }
 
+    @GetMapping("/")
     public List<Estivage> findAll() {
         return estivageService.findAll();
     }
 
-    public int deleteByRef(String ref) {
+    @DeleteMapping("/ref/{ref}")
+    public int deleteByRef(@PathVariable String ref) {
         return estivageService.deleteByRef(ref);
     }
 
-    public int deleteByNumArrivee(String numArrivee) {
+    @DeleteMapping("/aff/{numArrivee}")
+    public int deleteByNumArrivee(@PathVariable String numArrivee) {
         return estivageService.deleteByNumArrivee(numArrivee);
     }
 
-    public int deleteByAdherentNumAdhesion(String numAdhesion) {
+    @DeleteMapping("/adherent/aff/{numAdhesion}")
+    public int deleteByAdherentNumAdhesion(@PathVariable String numAdhesion) {
         return estivageService.deleteByAdherentNumAdhesion(numAdhesion);
     }
 
-    public int deleteByAdherentPpr(String ppr) {
+    @DeleteMapping("/adherent/ppr/{ppr}")
+    public int deleteByAdherentPpr(@PathVariable String ppr) {
         return estivageService.deleteByAdherentPpr(ppr);
     }
 
-    public int deleteByAdherentCin(String cin) {
+    @DeleteMapping("/adherent/cin/{cin}")
+    public int deleteByAdherentCin(@PathVariable String cin) {
         return estivageService.deleteByAdherentCin(cin);
     }
 
-    public int save(Estivage estivage) {
+    @PostMapping("/")
+    public int save(@RequestBody Estivage estivage) {
         return estivageService.save(estivage);
     }
 }

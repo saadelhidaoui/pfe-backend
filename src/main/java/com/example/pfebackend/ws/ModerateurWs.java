@@ -3,8 +3,7 @@ package com.example.pfebackend.ws;
 import com.example.pfebackend.bean.Moderateur;
 import com.example.pfebackend.service.ModerateurService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,30 +13,37 @@ public class ModerateurWs {
     @Autowired
     private ModerateurService moderateurService;
 
-    public Moderateur findByRef(String ref) {
+    @GetMapping("/ref/{ref}")
+    public Moderateur findByRef(@PathVariable String ref) {
         return moderateurService.findByRef(ref);
     }
 
-    public Moderateur findByCin(String cin) {
+    @GetMapping("/cin/{cin}")
+    public Moderateur findByCin(@PathVariable String cin) {
         return moderateurService.findByCin(cin);
     }
 
-    public List<Moderateur> findByQualite(String qualite) {
+    @GetMapping("/qualite/{qualite}")
+    public List<Moderateur> findByQualite(@PathVariable String qualite) {
         return moderateurService.findByQualite(qualite);
     }
 
+    @GetMapping("/")
     public List<Moderateur> findAll() {
         return moderateurService.findAll();
     }
 
-    public int deleteByRef(String ref) {
+    @DeleteMapping("/ref/{ref}")
+    public int deleteByRef(@PathVariable String ref) {
         return moderateurService.deleteByRef(ref);
     }
 
-    public int deleteByCin(String cin) {
+    @DeleteMapping("/cin/{cin}")
+    public int deleteByCin(@PathVariable String cin) {
         return moderateurService.deleteByCin(cin);
     }
 
+    @PostMapping("/")
     public int save(Moderateur moderateur) {
         return moderateurService.save(moderateur);
     }
